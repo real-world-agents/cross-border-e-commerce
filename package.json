@@ -13,6 +13,9 @@
     "typecheck": "tsc"
   },
   "dependencies": {
+    "@ai-sdk/deepseek": "^3.0.12",
+    "@ai-sdk/openai": "^4.0.24",
+    "@ai-sdk/openai-compatible": "^3.0.17",
     "@vercel/connect": "0.4.0",
     "ai": "^7.0.26",
     "eve": "^0.25.2",
@@ -20,6 +23,7 @@
   },
   "devDependencies": {
     "@types/node": "24.x",
+    "microsandbox": "^0.5.10",
     "typescript": "7.0.2"
   },
   "overrides": {
@@ -28,5 +32,4 @@
   "engines": {
     "node": "24.x"
   }
-
 }
