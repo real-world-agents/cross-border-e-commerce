@@ -41,3 +41,7 @@ Report per candidate category or topic:
 - Who and where: demography and subregion data when gathered.
 - Sourced evidence for every claim; never invent metrics. If a source
   returned nothing, list it under data gaps rather than guessing.
+- Interview claims: if the profile contains `claim.*` facts about this
+  market, address each explicitly — confirm it, refute it with fresh data,
+  or list it as untested. Never silently repeat a `contradicted` claim as
+  fact.

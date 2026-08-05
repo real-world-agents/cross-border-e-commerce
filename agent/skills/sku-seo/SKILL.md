@@ -13,7 +13,9 @@ Always pass the destination `location_name` and `language_code`.
 ## Step 1: Seeds
 
 Derive seed keywords from each SKU: product type, key attributes, use cases,
-audience, and local-language synonyms. Mark these as hypotheses.
+audience, and local-language synonyms. Mark these as hypotheses. If the
+profile's `calibration.overall` is `overconfident`, treat user-supplied
+keyword importance as hypotheses to validate, not priors.
 
 ## Step 2: Expand the keyword universe
 

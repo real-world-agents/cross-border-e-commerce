@@ -7,6 +7,11 @@ description: Use when recommending which e-commerce platforms to sell on in a de
 Ground every recommendation in data. LLM knowledge may propose candidates, but
 traffic, SERP, and marketplace data must confirm them.
 
+Before building candidate lists from the user's stated platforms or
+categories, check the profile's `claim.*` facts: a `contradicted` status
+means the interview data already disagreed with the user — re-verify before
+recommending, and say so in the brief.
+
 ## Part A: Which platforms to sell on
 
 1. **Candidate list** — propose the marketplaces plausibly relevant for the

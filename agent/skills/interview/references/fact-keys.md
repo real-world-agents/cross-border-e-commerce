@@ -52,6 +52,24 @@ when they fit so later turns stay consistent.
 | `constraint.language` | `Chinese-first UI`, `needs Korean listings` |
 | `constraint.risk_tolerance` | `low`, `medium`, `high` |
 
+## Claims & calibration
+
+Number claims and calibration tests sequentially (`claim.1.*`, `claim.2.*`, …).
+On a re-interview, continue the numbering — `update_profile` merges facts, so
+reusing an index silently overwrites the earlier record.
+
+| Key | Example value |
+|---|---|
+| `claim.1.text` | `pet supplies are booming in Korea` |
+| `claim.1.status` | `verified` / `contradicted` / `partial` / `untested` |
+| `claim.1.evidence` | `trends explore: stable, -4% QoQ (checked 2026-08-05)` |
+| `calibration.1.question` | `monthly Google searches for 'yoga mat' in South Korea` |
+| `calibration.1.user_estimate` | `10K-100K` |
+| `calibration.1.actual` | `4,400/mo` |
+| `calibration.1.result` | `accurate` / `overestimate` / `underestimate` |
+| `calibration.overall` | `overconfident` / `well-calibrated` / `underconfident` / `mixed` / `untested` |
+| `interview.claims_checked` | `2` |
+
 ## Notes prose (not facts)
 
 Put nuance, contradictions, open questions, and job-to-be-done phrasing in

@@ -1,6 +1,7 @@
 import { defineTool } from "eve/tools";
 import { z } from "zod";
 import { dataforseoLive } from "../../lib/aisa.js";
+import { trendDirection } from "../../lib/trend-verdict.js";
 
 export default defineTool({
   description:
@@ -47,22 +48,10 @@ export default defineTool({
           .filter((d) => Array.isArray(d.values))
           .map((d) => ({ week: d.date_from as string, value: d.values[idx] ?? null }));
         const values = points.map((p) => p.value).filter((v): v is number => v !== null);
-        const quarter = Math.max(1, Math.floor(values.length / 4));
-        const avg = (arr: number[]) =>
-          arr.length === 0 ? null : arr.reduce((a, b) => a + b, 0) / arr.length;
-        const recent = avg(values.slice(-quarter));
-        const prior = avg(values.slice(-2 * quarter, -quarter));
-        const direction =
-          recent === null || prior === null
-            ? "unknown"
-            : recent > prior * 1.15
-              ? "rising"
-              : recent < prior * 0.85
-                ? "falling"
-                : "stable";
+        const { direction, recentAvg, priorAvg } = trendDirection(values);
         // Halve the series when long; the averages carry the signal.
         const sampled = points.length > 30 ? points.filter((_, i) => i % 2 === 0) : points;
-        return { keyword, direction, recentAvg: recent, priorAvg: prior, weekly: sampled };
+        return { keyword, direction, recentAvg, priorAvg, weekly: sampled };
       });
       return { location: location_name ?? "worldwide", keywords: perKeyword };
     }

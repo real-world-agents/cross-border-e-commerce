@@ -8,7 +8,7 @@ import {
 
 export default defineTool({
   description:
-    "Read the current user's profile (facts, notes, interview status). Call at the start of every session to decide whether the onboarding interview is still required.",
+    "Read the current user's profile (facts, notes, interview status). Usually unnecessary — turn instructions already inject the status and completed profile; use to re-check right after an update.",
   inputSchema: z.object({}),
   async execute() {
     const profile = profileState.get();
